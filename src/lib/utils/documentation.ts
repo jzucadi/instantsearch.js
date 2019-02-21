@@ -20,7 +20,7 @@ export function createDocumentationMessageGenerator(...widgets: WidgetParam[]) {
     .map(widget => createDocumentationLink(widget))
     .join(', ');
 
-  return function(message: string) {
+  return function(message?: string) {
     return [message, `See documentation: ${links}`]
       .filter(Boolean)
       .join('\n\n');

@@ -9,9 +9,9 @@ import isDomElement from './isDomElement';
  */
 function getContainerNode(selectorOrHTMLElement: string | HTMLElement) {
   const isSelectorString = typeof selectorOrHTMLElement === 'string';
-  const domElement = isSelectorString
+  const domElement = (isSelectorString
     ? document.querySelector(selectorOrHTMLElement as string)
-    : selectorOrHTMLElement;
+    : selectorOrHTMLElement) as HTMLElement;
 
   if (!isDomElement(domElement)) {
     let errorMessage = 'Container must be `string` or `HTMLElement`.';
